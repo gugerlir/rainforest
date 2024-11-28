@@ -254,13 +254,13 @@ OFFSET_CCS4 = [297,-100]
 if ('lom' in socket.gethostname()) or ('meteoswiss' in socket.gethostname()):
     FOLDER_RADAR = '/srn/data/'
     FOLDER_ISO0 = '/srn/data/HZT/'
-elif 'tsa' in socket.gethostname():
-    FOLDER_DATABASE = '/store/msrad/radar/radar_database/'
-    FOLDER_RADAR = '/store/msrad/radar/swiss/data/'
-    FOLDER_RADARH = '/store/msrad/radar/polarHR/data/'
-    FOLDER_CPCCV = '/store/msrad/radar/cpc_validation/daily/'
+elif 'balfrin' in socket.gethostname() or 'nid' in socket.gethostname():
+    FOLDER_DATABASE = '/store_new/mch/msrad/radar/radar_database_v2/'
+    FOLDER_RADAR = '/store_new/mch/msrad/radar/swiss/data/'
+    FOLDER_RADARH = '/store_new/mch/msrad/radar/polarHR/data/'
+    FOLDER_CPCCV = '/store_new/mch/msrad/radar/cpc_validation/daily/'
+    FOLDER_ISO0 = '/store_new/mch/msrad/radar/swiss/data/'
 
-    FOLDER_ISO0 = '/store/msrad/radar/swiss/data/'
     COSMO1_START = datetime.datetime(2015,10,1)
     COSMO1E_START = datetime.datetime(2019,7,2)
     FOLDER_COSMO1 = '/store/s83/owm/COSMO-1/'
@@ -274,6 +274,7 @@ elif 'tsa' in socket.gethostname():
     FILES_COSMO1E_T = sorted(glob.glob(FOLDER_COSMO1E_T + '*.nc'))
     TIMES_COSMO1E_T = np.array([datetime.datetime.strptime(f[-13:-3],'%Y%m%d%H')
         for f in FILES_COSMO1E_T])
+
 
  ###############
  # Radar processing
